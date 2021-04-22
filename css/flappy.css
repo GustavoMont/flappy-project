@@ -26,7 +26,7 @@
     top: calc(50% - 30px);
     left: calc(40% - 30px);
 }
-.par-de-barreira {
+.par-de-barreiras {
     height: 100%;
     
     display: flex;
@@ -35,6 +35,8 @@
 
     position: absolute;
     top: 0;
+
+
 }
 .barreira {
     display: flex;
