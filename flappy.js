@@ -38,13 +38,63 @@ function parDeBarreiras(altura, abertura, position)
         this.inf.setAltura(alturaInferior)
     }
 
-    this.getPos() = () => parent(this.element.style.left.split('px')[0])
+    this.getPos = () => parseInt(this.element.style.left.split('px')[0])
     this.setPos = position => this.element.style.left = `${position}px`
+    this.getLargura = () => this.element.clientWidth
     this.sortearAbertura()
     this.setPos(position)
 }
 
+function barreiras(altura, largura, abertura, espaco, notficarPonto)
+{
+    this.pares = 
+    [
+        new parDeBarreiras(altura, abertura, largura),
+        new parDeBarreiras(altura, abertura, largura + espaco),
+        new parDeBarreiras(altura, abertura, largura + espaco * 2),
+        new parDeBarreiras(altura, abertura, largura + espaco * 3),
+    ]
 
+    const deslocamento = 3
+
+    this.animar = () =>
+    {
+        this.pares.forEach( par => {
+            par.setPos(par.getPos() - deslocamento)
+
+            if(par.getPos() < -par.getLargura())
+            {
+                par.setPos(par.getPos() + espaco * this.pares.length)
+                par.sortearAbertura()
+            }
+            const meio = largura/2
+
+            const cruzou = par.getPos() + deslocamento >= meio &&
+                            par.getPos() < meio
+
+            cruzou && notficarPonto() 
+        })
+
+    }
+}
+
+let score = document.querySelector('[score]')
+let counter = 0
+
+
+const bar = new barreiras(500, 1200, 200, 400, () => {
+  score.innerHTML = counter++
+})
+
+const gameArea = document.querySelector('[wm-flappy]')
+
+bar.pares.forEach(par => {
+    gameArea.appendChild(par.element)
+})
+
+setInterval(() => {
+    bar.animar()
+}, 15)
 
 
 

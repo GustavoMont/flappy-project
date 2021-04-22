@@ -62,11 +62,13 @@
     background: linear-gradient(90deg, #639301, #a5e82e);
 }
 
-.score {
+[score] {
     font-size: 80px;
     font-family: 'Pixel';
 
     position: absolute;
     top: 0;
     right: 10px;
+
+    z-index: 999;
 }
