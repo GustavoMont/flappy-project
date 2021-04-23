@@ -78,23 +78,45 @@ function barreiras(altura, largura, abertura, espaco, notficarPonto)
     }
 }
 
-let score = document.querySelector('[score]')
-let counter = 0
+function Bird(alturaDatela)
+{
+    let voando = false
+    
+    this.element = newElement('img', 'bird')
+    this.element.src = './imgs/passaro.png'
+    
+    window.onkeydown = e => {voando = true}
+    window.onkeyup = e => {voando = false}
+
+    this.getY = () => parseInt(this.element.style.bottom.split('px')[0])
+    this.setY = (y) => this.element.style.bottom = `${y}px`
+
+    this.animar = () => {
+        
+        let novoY = this.getY() + (voando ? 6 : -5)
+        const maxHeight = alturaDatela - this.element.clientHeight
+
+        if (novoY <= 0)
+        {
+            this.setY(0)
+        }
+        else if(novoY >= alturaDatela)
+        {
+            this.setY(maxHeight)
+        }
+        else 
+        {
+            this.setY(novoY)
+        }
+
+        
+    }
+
+    this.setY(alturaDatela/2)
+
+}
 
 
-const bar = new barreiras(500, 1200, 200, 400, () => {
-  score.innerHTML = counter++
-})
-
-const gameArea = document.querySelector('[wm-flappy]')
-
-bar.pares.forEach(par => {
-    gameArea.appendChild(par.element)
-})
-
-setInterval(() => {
-    bar.animar()
-}, 15)
 
 
 
