@@ -12,6 +12,7 @@ Projeto construído durante o curso sobre Web
   - [Sumary 📔](#sumary-)
   - [About it](#about-it)
   - [Technologies](#technologies)
+  - [My considerations](#my-considerations)
 
 
 ---
@@ -28,5 +29,16 @@ This project was basically developed during the study of the modern Web Course. 
 - CSS3
 - Javascript
 
+<div style= "margin: 30px; display: flex; justify-content: space-around;" >
+    <img src="imgs/html-5.svg" width="100">
+    <img src="imgs/css.svg" width="100">
+    <img src="imgs/javascript.svg" width="100">
+</div>
 
+---
 
+## My considerations
+
+I did this project with a video tutorial so, I have some doubts about the code, I can understand its logic 🤯, but I have to get used to coding using constructor functions. It was a good experience and I hope in future I can code something like it. 😁🤓 
+
+---

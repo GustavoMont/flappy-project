@@ -137,7 +137,7 @@ function colision (bird, bars)
         if(!colisao)
         {
             const sup = par.sup.element
-            const inf = par.sup.element
+            const inf = par.inf.element
             colisao = Sobrepostos(bird.element, sup) || Sobrepostos(bird.element, inf) 
         }
 
